@@ -4,10 +4,10 @@ with open("encrypted.bin", "rb") as inp:
     encrypted = inp.read()
 
 with open("passwords.txt") as file:
-    lines = [line.replace("\n", "") for line in file]
+    passwords = [line.replace("\n", "") for line in file]
 
-for line in lines:
+for password in passwords:
     try:
-        print(simplecrypt.decrypt(line, encrypted))
+        print(simplecrypt.decrypt(password, encrypted))
     except simplecrypt.DecryptionException:
         pass
